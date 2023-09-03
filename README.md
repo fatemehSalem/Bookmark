@@ -46,3 +46,6 @@ for Jib maven Plugin tool to use your docker image , the following pattern is re
 
 2_ run this command:``` ./mvnw jib:build```
 
+![Capture](https://github.com/fatemehSalem/Bookmark/assets/42536170/ca621e58-d591-4f3a-9abf-cf178295e53f)
+
+
