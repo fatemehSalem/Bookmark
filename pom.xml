@@ -71,12 +71,42 @@
         </dependency>
     </dependencies>
 
+    <!--for Jib Tool-->
+<!--    <build>
+        <plugins>
+            <plugin>
+                <groupId>com.google.cloud.tools</groupId>
+                <artifactId>jib-maven-plugin</artifactId>
+                <version>4.2.0</version>
+                <configuration>
+                    <from>
+                        adoptopenjdk:17-jre
+                    </from>
+                    <to>
+                        <image>ftmhslm/bookmarker</image>
+                        <tag>latest</tag>
+                        <tag>0.0.1</tag>
+                    </to>
+                    <container>
+                        <ports>
+                            8080
+                        </ports>
+                    <container>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>-->
     <build>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
+                    <image>
+                        <name>
+                            ftmhslm/bookmarker
+                        </name>
+                    </image>
                     <excludes>
                         <exclude>
                             <groupId>org.projectlombok</groupId>
