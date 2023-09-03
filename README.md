@@ -9,11 +9,9 @@ Instead of Dockerizing and creating Docker images using the Maven plugin, we can
 
 
 ![Capture](https://github.com/fatemehSalem/Bookmark/assets/42536170/9636d94c-0096-4c6f-9d27-7500dc3b211d)
-Then : docker run -p 8080:8080 yourimagename/tag
+Then : docker run -p 8080:8080 yourimagename:tag
 
 -------------------------------------------------------------------------------------------------
-for Jib maven Plugin tool to use your docker image , the following pattern is recommended:
-1_ add the configs of Jib dependency on your pom.xml :
 <build>
         <plugins>
             <plugin>
@@ -25,7 +23,7 @@ for Jib maven Plugin tool to use your docker image , the following pattern is re
                         adoptopenjdk:17-jre
                     </from>
                     <to>
-                        <image>ftmhslm/bookmarker</image>
+                        <image>yourimagename</image>
                         <tag>latest</tag>
                         <tag>0.0.1</tag>
                     </to>
@@ -38,5 +36,10 @@ for Jib maven Plugin tool to use your docker image , the following pattern is re
             </plugin>
         </plugins>
     </build>
+-------------------------------------------------------------------------------------------------
+
+for Jib maven Plugin tool to use your docker image , the following pattern is recommended:
+1_ add the configs of Jib dependency on your pom.xml :
+
 2_ run this command: ./mvnw jib:build
 
