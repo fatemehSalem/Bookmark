@@ -9,6 +9,8 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Service
 @Transactional
 @RequiredArgsConstructor
@@ -32,5 +34,16 @@ public class BookmarkService {
         Page<BookmarkDTO> bookmarkPage = bookmarkRepository.searchBookmarks(query,pageable);
         /*Page<BookmarkVM> bookmarkPageVM = bookmarkRepository.findByTitleContainsOrderByIdTitle(query,pageable);*/
         return new BookmarksDTO(bookmarkPage);
+    }
+    public List<Bookmark> saveAll(List<Bookmark> bookmarks) {
+        return bookmarkRepository.saveAll(bookmarks);
+    }
+
+    public void deleteById(Long id) {
+        bookmarkRepository.deleteById(id);
+    }
+
+    public void deleteAll() {
+        bookmarkRepository.deleteAllInBatch();
     }
 }
